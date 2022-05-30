@@ -7,10 +7,7 @@ import com.example.flowsdemo.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG,"Emitting $it")
                 emit(it)
             }
+        }  //Usage of .map is
+            .map {
+            it*it
         }.flowOn(Dispatchers.Default)
 
     }

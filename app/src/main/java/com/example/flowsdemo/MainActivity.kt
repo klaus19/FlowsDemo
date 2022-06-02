@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         setupFlows()
         setupClicks()
 
+        goingToNextActivity()
+
+    }
+
+    private fun goingToNextActivity() {
+        binding.btnNext.setOnClickListener {
+
+        }
     }
 
     private fun setupClicks() {

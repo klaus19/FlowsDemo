@@ -1,5 +1,6 @@
 package com.example.flowsdemo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun goingToNextActivity() {
         binding.btnNext.setOnClickListener {
-
+               startActivity(Intent(this@MainActivity, SecondActivity::class.java))
         }
     }
 

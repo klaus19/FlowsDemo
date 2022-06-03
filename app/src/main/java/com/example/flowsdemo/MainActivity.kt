@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupClicks() {
         binding.btnLaunch.setOnClickListener {
-            CoroutineScope(Dispatchers.Main).launch{
+            CoroutineScope(Dispatchers.IO).launch{
                 flow.collect {
                     Log.d(TAG,it.toString())
                 }

@@ -10,11 +10,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 class FlowActivity:AppCompatActivity() {
 
-    val weatherForecast = listOf<Int>(3,4,5)
+    val weatherForecast = listOf(3,4,5)
     lateinit var flow: Flow<Int>
     lateinit var binding: FlowActivityBinding
 
@@ -35,11 +36,12 @@ class FlowActivity:AppCompatActivity() {
         }
     }
 
-    private fun lionAcross() = flow<Int> {
-          for (i in weatherForecast){
-              delay(1000)
-              emit(i)
-          }
-
+    private fun lionAcross(){
+        flow = flow {
+            for (i in weatherForecast){
+                delay(1000)
+                emit(i)
+            }
+        }.flowOn(Dispatchers.Default)
     }
 }

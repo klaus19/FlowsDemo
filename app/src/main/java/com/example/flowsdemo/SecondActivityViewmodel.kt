@@ -7,7 +7,7 @@ import kotlin.properties.Delegates
 
 class SecondActivityViewmodel :ViewModel() {
 
-    var number by Delegates.notNull<Int>()
+    var number = 0
     private var _live = MutableLiveData<Int>()
     val liveData:LiveData<Int>
         get() = _live

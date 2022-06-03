@@ -19,7 +19,7 @@ class SecondActivity:AppCompatActivity() {
 
         viewmodel =ViewModelProvider(this).get(SecondActivityViewmodel::class.java)
 
-
+        binding.txtCount.text = viewmodel.liveData.toString()   //This occurs twice? Why
 
         setViewmodel()
 
@@ -30,8 +30,8 @@ class SecondActivity:AppCompatActivity() {
     }
 
     private fun setViewmodel() {
-        viewmodel.liveData.value
-        binding.txtCount.text = viewmodel.number.toString()
+        viewmodel.getData()
+        binding.txtCount.text = viewmodel.number.toString()   //This occurs twice ? Why
     }
 
 

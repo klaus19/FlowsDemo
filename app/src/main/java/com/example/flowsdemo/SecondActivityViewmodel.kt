@@ -14,7 +14,7 @@ class SecondActivityViewmodel :ViewModel() {
 
 
        fun getData(){
-           _live.value = number
+           _live.value =number
        }
 
 

@@ -1,5 +1,6 @@
 package com.example.flowsdemo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,11 +26,28 @@ class MainActivity : AppCompatActivity() {
         setupFlows()
         setupClicks()
 
+        goingToNextActivity()
+        goingToFlowActivity()
+
     }
+
+    private fun goingToFlowActivity() {
+        binding.btnFlow.setOnClickListener {
+            startActivity(Intent(this@MainActivity,FlowActivity::class.java))
+        }
+    }
+
+    private fun goingToNextActivity() {
+        binding.btnNext.setOnClickListener {
+               startActivity(Intent(this@MainActivity, SecondActivity::class.java))
+        }
+    }
+
+
 
     private fun setupClicks() {
         binding.btnLaunch.setOnClickListener {
-            CoroutineScope(Dispatchers.Main).launch{
+            CoroutineScope(Dispatchers.IO).launch{
                 flow.collect {
                     Log.d(TAG,it.toString())
                 }
